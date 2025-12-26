@@ -1,4 +1,4 @@
-Flowwvahub Auth Integration and Reward Dashboard Design
+## Flowwvahub Auth Integration and Reward Dashboard Design
 
 ## FEATURES
 Signup/Signin usign email and password
