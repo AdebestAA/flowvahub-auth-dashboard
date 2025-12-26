@@ -5,6 +5,7 @@ import IconPlaceholder from '../../utils/icon-placeholder'
 import { menuList } from '../../utils/menuList';
 
 import { IoCloseSharp } from "react-icons/io5";
+import MenuBarFooter from './menubar-footer';
 
 
 const MenuBar = () => {
@@ -44,15 +45,9 @@ key={item.id} className='flex items-center  hover:bg-purple-200 hover:text-prima
     })}
 </section>
 
-<footer className='flex items-center gap-x-2 mx-4 my-2 border-t border-grayOne pt-2'>
-    <div className='h-[40px] w-[40px] rounded-full flex items-center justify-center font-semibold bg-[brown]'>
-        A
-    </div>
-    <div className='text-sm'>
-        <h1 className='font-semibold'>Adeseun</h1>
-        <h1>aadebesta@gmail.com</h1>
-    </div>
-</footer>
+<>
+<MenuBarFooter/>
+</>
 
     </div>
         </section>
