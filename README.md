@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+Flowwvahub Auth Integration and Reward Dashboard Design
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## FEATURES
+Signup/Signin usign email and password
+User Profil creation After sign
+Custom Users Table that includes username column for display and personalization
+Form Validation Using Zod
+Protected Dashboard Route
+Supabase Session Persistence Redirect
+Error adn Loading State Management
+Rewards Dashboard Design
 
-Currently, two official plugins are available:
+## SIGN UP FLOW
+User signs up with email,username and password
+form inputs get validated using zod
+data get submitted to supabase for authentication
+the user gets added to the users table immediately after the successful authentication with supabase
+user is redirected to signin page
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## SIGN IN FLOW
+users enter his/her email and password
+zod validates it
+data get sent to supabase for authentication
+user gets redirected to the dashboard page 
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## TECH STACK
+## Frontend
+React Js(Vite) 
+Typescript -Type safety
+Tailwind CSS - Styling
+React Router - client side routing
+Zod - Form Validation and Schema
 
-## Expanding the ESLint configuration
+## Backend/Database
+Supabase - auth and database
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## State Management
+Context API
+Zustand
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## GENERAL Flow
+On visit, user lands on signup/sigin page
+after successful authentication user routes to dashboard
+unauthenicated users cant access dashboard
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
