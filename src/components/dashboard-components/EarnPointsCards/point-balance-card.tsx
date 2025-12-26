@@ -2,15 +2,15 @@ import IconPlaceholder from "../../../utils/icon-placeholder"
 
 export const PointBalanceCard = ()=>{
 
-    return <section  className="rounded-t-lg overflow-hidden shadow-lg  hover:shadow-xl hover:translate-y-[-5px] transition-all duration-500 xl:w-[30%] mdlg:w-[48%] w-full">
+    return <section  className="rounded-lg overflow-hidden shadow-lg  hover:shadow-xl hover:translate-y-[-5px] transition-all duration-500 xl:w-[30%] mdlg:w-[48%] w-full">
     {/*  */}
-    <aside className="flex gap-x-2 items-center py-4 bg-sky-100/50 px-6 ">
+    <aside className="flex gap-x-2 h-[20%] items-center py-4 bg-sky-100/50 px-6 ">
         <span><IconPlaceholder style="text-primary"/> </span>
         <h1 className="font-semibold text-xl text-grayOne">Points Balance</h1>
     </aside>
     {/*  */}
 
-<div className="bg-white py-4">
+<div className="bg-white py-4 h-[80%]">
 
     <aside className="flex justify-between items-center px-4 py-12 ">
         <h1 className="text-4xl text-primary font-extrabold">10</h1>

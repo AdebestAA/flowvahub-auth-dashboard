@@ -36,15 +36,17 @@ const {handleSignUp,errorMsg,setErrorMsg,isLoading} = useAuthContext()
         resolver: zodResolver(signUpFormSchema),
         defaultValues: {
           email: '',
+          username:"",
           password: '',
+
         },
       })
 
 
 
-const onSubmit = async(formData:Pick<typeSignUpFormData, "email" |"password" >)=>{
+const onSubmit = async(formData:Pick<typeSignUpFormData, "email" |"password" | "username" >)=>{
 
- const response:Partial<typeAuthFunction<string,boolean>> = await handleSignUp({email:formData.email,password:formData.password})
+ const response:Partial<typeAuthFunction<string,boolean>> = await handleSignUp({email:formData.email,password:formData.password,username:formData.username})
 
     if (response.success) {
         navigate("/signin")
@@ -55,8 +57,8 @@ const onSubmit = async(formData:Pick<typeSignUpFormData, "email" |"password" >)=
 
 
 useEffect(()=>{
-console.log(errors);
-const errorFromForm:string | undefined =errors?.email ? errors?.email?.message : errors?.password ? errors?.password?.message : errors?.confirmPassword?.message ? errors.confirmPassword.message : ""
+
+const errorFromForm:string | undefined =errors?.email ? errors?.email?.message : errors?.password ? errors?.password?.message : errors?.confirmPassword?.message ? errors.confirmPassword.message :errors?.username?.message ? errors?.username?.message :errorMsg
 setErrorMsg(errorFromForm ? errorFromForm : "")
 
 
@@ -87,6 +89,17 @@ setErrorMsg(errorFromForm ? errorFromForm : "")
     placeholder='your@email.com'
     {...register("email")}
     className={` w-full ${inputClass}`}   type="email"  id="email" />
+
+    </aside>
+</div>
+    {/* username */}
+<div className='flex flex-col gap-y-2'>
+    <label htmlFor="username" className='peer-focus:text-blue-500 '>Username</label>
+    <aside className={asideClass}>
+    <input
+    placeholder='enter your username'
+    {...register("username")}
+    className={` w-full ${inputClass}`}   type="text"  id="username" />
 
     </aside>
 </div>

@@ -1,7 +1,7 @@
 import IconPlaceholder from "../../../utils/icon-placeholder"
 
 export const DailyStreakCard = ()=>{
-    return <section className="rounded-t-lg overflow-hidden shadow-lg  hover:shadow-xl hover:translate-y-[-5px] transition-all duration-500 xl:w-[30%] mdlg:w-[48%] w-full">
+    return <section className="rounded-lg overflow-hidden shadow-lg  hover:shadow-xl hover:translate-y-[-5px] transition-all duration-500 xl:w-[30%] mdlg:w-[48%] w-full">
         {/*  */}
     <aside className="flex gap-x-2 items-center py-4 bg-sky-100/50 px-6">
         <span><IconPlaceholder style="text-primary"/> </span>
@@ -21,7 +21,7 @@ export const DailyStreakCard = ()=>{
 
         {"MTWTFSS".split("").map((day,index)=>{
             
-            return <button className={`rounded-full lg:h-[30px] lg:w-[30px] h-[45px] w-[45px] bg-gray-200 ${day =="W" ? "outline outline-primary border-white border-2" : ""} font-medium`} key={index}>{day}</button>
+            return <button className={`rounded-full h-[30px] w-[30px]  bg-gray-200 ${day =="W" ? "outline outline-primary border-white border-2" : ""} font-medium`} key={index}>{day}</button>
         })}
             </div>
 

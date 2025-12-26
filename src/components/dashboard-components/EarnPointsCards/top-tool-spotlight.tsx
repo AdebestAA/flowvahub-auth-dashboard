@@ -3,8 +3,8 @@ import IconPlaceholder from '../../../utils/icon-placeholder'
 
 export const TopToolSpotlight = ()=>{
 
-    return <section className="rounded-t-lg overflow-hidden shadow-lg   hover:shadow-xl hover:translate-y-[-5px] transition-all duration-500 xl:w-[30%] mdlg:w-[48%] w-full">
-<header className="bg-gradient-to-r from-primary to-sky-500 px-4 py-4 flex justify-between items-center">
+    return <section className="rounded-lg overflow-hidden shadow-lg   hover:shadow-xl hover:translate-y-[-5px] transition-all duration-500 xl:w-[30%] mdlg:w-[48%] w-full flex flex-col">
+<header className="bg-gradient-to-r from-primary to-sky-500 px-4 py-4 flex justify-between items-center h-[30%]">
 <aside>
     <span className="bg-sky-500/30 rounded-xl px-2 text-white py-1 text-sm">Featured</span>
     <h1 className="text-white font-bold text-2xl">Top Tool Spotlight</h1>
@@ -16,7 +16,7 @@ export const TopToolSpotlight = ()=>{
 </aside>
 </header>
 
-<div className="flex px-4 gap-x-2 pt-4 pb-8 border-b border-gray-200 text-sm bg-white">
+<div className="flex px-4 gap-x-2 pt-4 pb-8 border-b border-gray-200 text-sm bg-white h-[70%]">
     <aside className=" pt-1">
         <IconPlaceholder style="text-primary text-lg"/>
     </aside>

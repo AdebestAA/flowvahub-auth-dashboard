@@ -23,7 +23,7 @@ export interface typeAuthFunction<S,B>{
 // AuthContent Types
 export type typeAuthContext = {
     user:string,
-    handleSignUp:(formData:Pick<typeSignUpFormData, "email" |"password" >)=> Promise<Partial<typeAuthFunction<string,boolean>>>,
+    handleSignUp:(formData:Pick<typeSignUpFormData, "email" |"password" |"username" >)=> Promise<Partial<typeAuthFunction<string,boolean>>>,
     handleSignIn:(formData:Pick<typeSignUpFormData, "email" |"password" >)=> Promise<Partial<typeAuthFunction<string,boolean>>>,
     errorMsg:string,
     setErrorMsg:React.Dispatch<React.SetStateAction<string>>,

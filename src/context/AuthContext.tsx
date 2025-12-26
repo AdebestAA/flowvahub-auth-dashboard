@@ -20,10 +20,26 @@ const [sessionLoading,setSessionLoading] = useState<boolean>(true)
 
 
 // SignUp function
-const handleSignUp = async(formData:Pick<typeSignUpFormData, "email" |"password" >):Promise<Partial<typeAuthFunction<string,boolean>>>=>{
+const handleSignUp = async(formData:Pick<typeSignUpFormData, "email" |"password" |"username">):Promise<Partial<typeAuthFunction<string,boolean>>>=>{
+
+    if (!navigator.onLine) {
+        setErrorMsg("unable to connect to internet")
+        return {
+            success:false
+        }
+    }
 setIsLoading(true)
    try {
-    const {data,error} = await clientSupabase.auth.signUp(formData)
+
+
+    const {data,error} = await clientSupabase.auth.signUp({
+        ...formData,
+        options: {
+            data: {
+              username: formData.username,
+            }}
+        
+        })
 
     if (error) {
         // console.log(error," something went wrong");
@@ -33,6 +49,22 @@ setIsLoading(true)
             success:false
         }
     }
+
+    console.log(data);
+    
+// add user to the user table
+
+const {data:userTableData,error:userTableError} = await clientSupabase.from("users").insert({email:data.user?.user_metadata.email,username:data.user?.user_metadata.username,user_id:data.user?.id})
+
+if (userTableError) {
+    setErrorMsg("unable to add user")
+    setIsLoading(false)
+    return {
+        success:false
+    }
+}
+
+
     
     setIsLoading(false)
     // console.log(data);
@@ -55,6 +87,14 @@ setIsLoading(true)
 
 // SignIn function
 const handleSignIn = async(formData:typeSignInFormData):Promise<Partial<typeAuthFunction<string,boolean>>> =>{
+
+
+    if (!navigator.onLine) {
+        setErrorMsg("unable to connect to internet")
+        return {
+            success:false
+        }
+    }
 setIsLoading(true)
    try {
     const {data,error} = await clientSupabase.auth.signInWithPassword(formData)
@@ -113,6 +153,7 @@ useEffect(()=>{
     // console.log("event",_event);
     setSession(session)
     // console.log("authStateChangeSession",session);
+    localStorage.setItem("userInfo",JSON.stringify(session?.user.user_metadata))
     
    })
 
@@ -124,6 +165,9 @@ useEffect(()=>{
 useEffect(()=>{
 
     if (!errorMsg) return
+
+  
+    
     const timeoutId = setTimeout(() => {
         setErrorMsg("")
     }, 3000);
