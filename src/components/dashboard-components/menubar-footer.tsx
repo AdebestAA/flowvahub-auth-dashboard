@@ -1,4 +1,3 @@
-import React from 'react'
 
 const MenuBarFooter = () => {
   return (
@@ -8,7 +7,7 @@ const MenuBarFooter = () => {
         </div>
         <div className='text-sm'>
             <h1 className='font-semibold'>{JSON.parse(localStorage.getItem("userInfo") as string).username}</h1>
-            <h1>{JSON.parse(localStorage.getItem("userInfo") as string).email}</h1>
+            <h1>{JSON.parse(localStorage.getItem("userInfo") as string).email.length > 10 ? JSON.parse(localStorage.getItem("userInfo") as string).email.slice(0,9)+"..." : JSON.parse(localStorage.getItem("userInfo") as string).email}</h1>
         </div>
     </footer>
   )
